@@ -1,18 +1,30 @@
 {
+  "name": "sprocket-blog",
+  "version": "1.0.0",
+  "description": "A blog built with Next.js and Strapi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sprocket-org/blog"
+  },
+  "author": "Jesse Clark",
+  "license": "MIT",
   "scripts": {
-    "frontend": "yarn dev --prefix ../frontend/",
-    "backend": "yarn dev --prefix ../backend/",
+    "frontend": "yarn clear && cd frontend && yarn dev",
+    "backend": "yarn clear && cd backend && yarn develop",
     "clear": "cd frontend && rm -rf .next && rm -rf cache",
-    "setup:frontend": "cd frontend && yarn",
-    "setup:backend": "cd backend && yarn",
-    "setup": "yarn install && yarn setup:frontend && yarn setup:backend",
-    "dev": "yarn clear && concurrently \"cd frontend && yarn dev\" \"cd backend && yarn develop\"",
-    "seed": "cd backend && yarn strapi import -f ../seed-data.tar.gz",
-    "export": "cd backend && yarn strapi export --no-encrypt -f ../seed-data",
+    "frontend:setup": "cd frontend && yarn",
+    "backend:setup": "cd backend && yarn",
+    "backend:db:seed": "cd backend && yarn strapi import -f ./database/seed/seed-data.tar.gz",
+    "backend:db:export": "cd backend && yarn strapi export --no-encrypt && cp export_*.tar.gz ./database/seed && mv ./database/seed/export_*.tar.gz ./database/seed/seed-data-latest.tar.gz && mv export_*.tar.gz ./database/backups/",
+    "setup": "yarn install && yarn frontend:setup && yarn backend:setup",
+    "start": "yarn clear && concurrently \"cd frontend && yarn dev\" \"cd backend && yarn develop\"",
+    "seed": "cd backend && yarn strapi import -f ./database/seed-data.tar.gz",
+    "export": "cd backend && yarn strapi export --no-encrypt -f ./database/seed-data",
     "repo:upstream": "git fetch upstream && git merge upstream/main"
   },
-  "dependencies": {
+  "devDependencies": {
     "concurrently": "^8.2.2",
-    "npm-check-updates": "^16.14.15"
+    "npm-check-updates": "^16.14.15",
+    "pg": "^8.12.0"
   }
 }

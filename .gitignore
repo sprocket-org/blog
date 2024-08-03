@@ -3,3 +3,6 @@ readme-images
 .vscode
 .DS_Store
 **/.yarn
+database
+.env
+mydb.dump
