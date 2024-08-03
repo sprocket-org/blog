@@ -17,7 +17,7 @@
     "backend:db:seed": "cd backend && yarn strapi import -f ./database/seed/seed-data.tar.gz",
     "backend:db:export": "cd backend && yarn strapi export --no-encrypt && cp export_*.tar.gz ./database/seed && mv ./database/seed/export_*.tar.gz ./database/seed/seed-data-latest.tar.gz && mv export_*.tar.gz ./database/backups/",
     "setup": "yarn install && yarn frontend:setup && yarn backend:setup",
-    "start": "yarn clear && yarn setup && concurrently \"cd frontend && yarn dev\" \"cd backend && yarn develop\"",
+    "start": "yarn clear && cd backend && yarn develop",
     "seed": "cd backend && yarn strapi import -f ./database/seed-data.tar.gz",
     "export": "cd backend && yarn strapi export --no-encrypt -f ./database/seed-data",
     "repo:upstream": "git fetch upstream && git merge upstream/main"
