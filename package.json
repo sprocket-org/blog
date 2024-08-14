@@ -6,7 +6,9 @@
     "backend": "npx pnpm --filter backend",
     "frontend": "npx pnpm --filter frontend",
     "develop": "npx pnpm run \"/^develop:.*/\"",
-    "develop:backand": "npx pnpm backend develop",
+    "develop:backend": "npx pnpm backend develop",
+    "build:backend": "npx pnpm backend build",
+    "start:backend": "npx pnpm backend start",
     "develop:frontend": "wait-on http://localhost:1337/admin && npx pnpm frontend develop"
   },
   "dependencies": {

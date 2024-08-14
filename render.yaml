@@ -3,8 +3,8 @@ services:
     name: strapi
     env: node
     plan: starter
-    buildCommand: npx pnpm i
-    startCommand: npx pnpm run develop
+    buildCommand: npx pnpm i && npx pnpm run build:backend
+    startCommand: npx pnpm run start:backend
     healthCheckPath: /_health
     autoDeploy: false
     disk:
