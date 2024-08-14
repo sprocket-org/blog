@@ -3,8 +3,8 @@ services:
     name: strapi
     env: node
     plan: starter
-    buildCommand: yarn install
-    startCommand: yarn develop
+    buildCommand: npx pnpm i
+    startCommand: npx pnpm run develop
     healthCheckPath: /_health
     autoDeploy: false
     disk:
