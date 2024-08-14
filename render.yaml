@@ -3,7 +3,7 @@ services:
     name: strapi
     env: node
     plan: starter
-    buildCommand: npx pnpm i && npx pnpm run build:backend
+    buildCommand: npx pnpm install --frozen-lockfile
     startCommand: npx pnpm run start:backend
     healthCheckPath: /_health
     autoDeploy: false
