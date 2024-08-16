@@ -11,6 +11,8 @@
     "export:backend": "pnpm backend export",
     "build:backend": "pnpm backend build",
     "start:backend": "pnpm backend start",
+    "start:frontend": "pnpm frontend start",
+    "build:frontend": "pnpm frontend build",
     "develop:frontend": "wait-on http://localhost:1337/admin && pnpm frontend develop"
   },
   "dependencies": {

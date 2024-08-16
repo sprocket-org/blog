@@ -1,14 +1,33 @@
 {
-  "collectionName": "components_decoration_heroes",
+  "collectionName": "components_slices_heroes",
   "info": {
     "name": "Hero",
-    "icon": "address-card"
+    "displayName": "Hero",
+    "icon": "heading",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
       "type": "string",
       "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "picture": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "buttons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.button-link"
     }
   }
 }
