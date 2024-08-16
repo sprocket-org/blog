@@ -11,8 +11,7 @@ module.exports = ({ env }) => {
         port,
         database,
         user,
-        password,
-        ssl: env.bool('DATABASE_SSL', true)
+        password
       },
       debug: false,
     },
