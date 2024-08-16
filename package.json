@@ -3,13 +3,15 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "backend": "npx pnpm --filter backend",
-    "frontend": "npx pnpm --filter frontend",
-    "develop": "npx pnpm run \"/^develop:.*/\"",
-    "develop:backend": "npx pnpm backend develop",
-    "build:backend": "npx pnpm backend build",
-    "start:backend": "npx pnpm backend start",
-    "develop:frontend": "wait-on http://localhost:1337/admin && npx pnpm frontend develop"
+    "backend": "pnpm --filter backend",
+    "frontend": "pnpm --filter frontend",
+    "develop": "pnpm \"/^develop:.*/\"",
+    "develop:backend": "pnpm backend develop",
+    "seed:backend": "pnpm backend seed",
+    "export:backend": "pnpm backend export",
+    "build:backend": "pnpm backend build",
+    "start:backend": "pnpm backend start",
+    "develop:frontend": "wait-on http://localhost:1337/admin && pnpm frontend develop"
   },
   "dependencies": {
     "wait-on": "5.2.1"
