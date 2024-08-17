@@ -42,7 +42,7 @@ const populate = {
   }
 };
 
-module.exports = (config, { strapi }) => {
+export default (config, { strapi }) => {
   // Add your own logic here.
   return async (ctx, next) => {
     ctx.query = {

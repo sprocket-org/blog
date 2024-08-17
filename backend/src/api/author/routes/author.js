@@ -1,9 +1,7 @@
-'use strict';
+import { factories } from "@strapi/strapi";
 
 /**
  * author router.
  */
 
-const { createCoreRouter } = require('@strapi/strapi').factories;
-
-module.exports = createCoreRouter('api::author.author');
+export default factories.createCoreRouter('api::author.author');
