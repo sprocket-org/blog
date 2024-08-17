@@ -1,9 +1,9 @@
 {
-  "collectionName": "components_slices_heroes",
+  "collectionName": "components_slices_feature_rows",
   "info": {
-    "name": "Hero",
-    "displayName": "Hero",
-    "icon": "heading",
+    "name": "FeatureRow",
+    "displayName": "Feature row",
+    "icon": "arrows-alt-h",
     "description": ""
   },
   "options": {},
@@ -13,21 +13,21 @@
       "required": true
     },
     "description": {
-      "type": "string",
-      "required": true
+      "type": "text"
     },
-    "picture": {
+    "media": {
       "type": "media",
       "multiple": false,
       "required": true,
       "allowedTypes": [
-        "images"
+        "images",
+        "videos"
       ]
     },
-    "buttons": {
+    "link": {
       "type": "component",
-      "repeatable": true,
-      "component": "links.button-link"
+      "repeatable": false,
+      "component": "links.link"
     }
   }
 }
