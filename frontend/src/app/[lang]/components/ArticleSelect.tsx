@@ -49,6 +49,7 @@ export default function ArticleSelect({
             return (
               <Link
                 href={`/blog/${category.attributes.slug}`}
+                key={category.id}
                 className={selectedFilter(
                   category.attributes.slug,
                   params.category
@@ -68,10 +69,11 @@ export default function ArticleSelect({
           <ul className="ml-4 space-y-1 list-disc">
             {articles.map((article: Article) => {
               return (
-                <li>
+                <li key={article.id}>
                   <Link
                     rel="noopener noreferrer"
                     href={`/blog/${params.category}/${article.attributes.slug}`}
+                    
                     className={`${
                       params.slug === article.attributes.slug &&
                       "text-violet-400"
