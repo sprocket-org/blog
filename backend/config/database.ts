@@ -12,7 +12,6 @@ export default ({ env }) => {
         database,
         user,
         password,
-        ssl: {  },
       },
       debug: false,
     },
