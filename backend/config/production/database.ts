@@ -11,7 +11,8 @@ export default ({ env }) => {
         port,
         database,
         user,
-        password
+        password,
+        ssl: env.bool('DATABASE_SSL', false)
       },
       debug: false,
     },

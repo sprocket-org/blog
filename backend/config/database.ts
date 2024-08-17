@@ -12,6 +12,7 @@ export default ({ env }) => {
         database,
         user,
         password,
+        ssl: env.bool('DATABASE_SSL', false)
       },
       debug: false,
     },
