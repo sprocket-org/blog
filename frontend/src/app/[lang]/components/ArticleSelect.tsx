@@ -44,7 +44,7 @@ export default function ArticleSelect({
 
       <div>
         <div className="flex flex-wrap py-6 space-x-2 dark:border-gray-400">
-          {categories.map((category: Category) => {
+          {categories?.map((category: Category) => {
             if (category.attributes.articles.data.length === 0) return null;
             return (
               <Link
