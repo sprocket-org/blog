@@ -6,6 +6,12 @@ export async function fetchAPI(
   urlParamsObject = {},
   options = {}
 ) {
+  // Build request URL
+  const queryString = qs.stringify(urlParamsObject);
+  const requestUrl = `${getStrapiURL(
+    `/api${path}${queryString ? `?${queryString}` : ""}`
+  )}`;
+
   try {
     // Merge default and user options
     const mergedOptions = {
@@ -16,18 +22,13 @@ export async function fetchAPI(
       ...options,
     };
 
-    // Build request URL
-    const queryString = qs.stringify(urlParamsObject);
-    const requestUrl = `${getStrapiURL(
-      `/api${path}${queryString ? `?${queryString}` : ""}`
-    )}`;
-
     // Trigger API call
     const response = await fetch(requestUrl, mergedOptions);
     const data = await response.json();
     return data;
     
   } catch (error) {
+    console.log('requestUrl', requestUrl);
     console.error(error);
     throw new Error(`Please check if your server is running and you set all the required tokens.`);
   }
