@@ -132,4 +132,5 @@ dist
 .DS_Store
 *.tar.gz
 
-frontendX
+# Ignore astro for now
+astro

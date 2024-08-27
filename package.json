@@ -4,20 +4,13 @@
   "version": "0.0.0",
   "scripts": {
     "backend": "pnpm --filter backend",
-    "build:backend": "pnpm backend build",
-    "develop:backend": "pnpm backend develop",
-    "develop:frontend": "wait-on http://localhost:1337/admin && pnpm frontend develop",
-    "develop": "pnpm run \"/^develop:.*/\"",
+    "build": "pnpm backend build && pnpm frontend build",
     "frontend": "pnpm --filter frontend",
-    "seed:backend": "pnpm backend seed",
-    "start:backend": "pnpm backend start",
-    "start:frontend": "pnpm frontend start",
-    "build:frontend": "pnpm frontend build",
-    "start": "pnpm start:backend && pnpm start:frontend",
-    "build": "pnpm build:backend && pnpm build:frontend"
+    "develop": "concurrently \"pnpm backend develop\" \"wait-on http://localhost:1337/admin && pnpm frontend develop\""
   },
   "dependencies": {
-    "wait-on": "5.2.1"
+    "wait-on": "^8.0.0",
+    "concurrently": "^8.2.2"
   },
   "packageManager": "pnpm@9.7.1+sha512.faf344af2d6ca65c4c5c8c2224ea77a81a5e8859cbc4e06b1511ddce2f0151512431dd19e6aff31f2c6a8f5f2aced9bd2273e1fed7dd4de1868984059d2c4247"
 }
