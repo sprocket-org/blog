@@ -4,17 +4,15 @@ import { NextResponse } from "next/server";
 import { i18n } from "../i18n-config";
 
 import { match as matchLocale } from "@formatjs/intl-localematcher";
-// import Negotiator from "negotiator";
+import Negotiator from "negotiator";
 
 function getLocale(request: NextRequest): string | undefined {
   // Negotiator expects plain object so we need to transform headers
   const negotiatorHeaders: Record<string, string> = {};
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
 
-  console.log("negotiatorHeaders", negotiatorHeaders);
-
   // Use negotiator and intl-localematcher to get best locale
-  // let languages = new Negotiator({ headers: negotiatorHeaders }).languages();
+  let languages = new Negotiator({ headers: negotiatorHeaders }).languages();
   // @ts-ignore locales are readonly
   const locales: string[] = i18n.locales;
 
@@ -23,17 +21,11 @@ function getLocale(request: NextRequest): string | undefined {
   // console.log("i18n.defaultLocale", i18n.defaultLocale);
   // console.log("i18n.locales", i18n.locales);
 
-  let languages = ["en-US", "en"];
-
-  // console.log("spread languages", languages);
   try {
     return matchLocale(languages, locales, i18n.defaultLocale);
   } catch (e) {
-    console.log("languages", languages);
-    console.log("locales", locales);
-    console.log("i18n.defaultLocale", i18n.defaultLocale);
-    console.log("i18n.locales", i18n.locales);
-    console.error(e);
+    // Invalid accept-language header
+    return i18n.defaultLocale;
   }
 }
 
