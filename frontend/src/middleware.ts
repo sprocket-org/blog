@@ -20,7 +20,16 @@ function getLocale(request: NextRequest): string | undefined {
   console.log("locales", locales);
   console.log("i18n.defaultLocale", i18n.defaultLocale);
   console.log("i18n.locales", i18n.locales);
-  return matchLocale(languages, locales, i18n.defaultLocale);
+
+  try {
+    return matchLocale(languages, locales, i18n.defaultLocale);
+  } catch (e) {
+    console.log("languages", languages);
+    console.log("locales", locales);
+    console.log("i18n.defaultLocale", i18n.defaultLocale);
+    console.log("i18n.locales", i18n.locales);
+    console.error(e);
+  }
 }
 
 export function middleware(request: NextRequest) {
