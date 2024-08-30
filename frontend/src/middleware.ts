@@ -12,18 +12,18 @@ function getLocale(request: NextRequest): string | undefined {
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
 
   // Use negotiator and intl-localematcher to get best locale
-  let languages = new Negotiator({ headers: negotiatorHeaders }).languages();
+  // let languages = new Negotiator({ headers: negotiatorHeaders }).languages();
   // @ts-ignore locales are readonly
   const locales: string[] = i18n.locales;
 
-  console.log("languages", languages);
-  console.log("locales", locales);
-  console.log("i18n.defaultLocale", i18n.defaultLocale);
-  console.log("i18n.locales", i18n.locales);
+  // console.log("languages", languages);
+  // console.log("locales", locales);
+  // console.log("i18n.defaultLocale", i18n.defaultLocale);
+  // console.log("i18n.locales", i18n.locales);
 
-  languages = [...languages, ...i18n.locales];
+  let languages = ["en-US", "en"];
 
-  console.log("spread languages", languages);
+  // console.log("spread languages", languages);
   try {
     return matchLocale(languages, locales, i18n.defaultLocale);
   } catch (e) {
