@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import { i18n } from "../i18n-config";
 
 import { match as matchLocale } from "@formatjs/intl-localematcher";
-import Negotiator from "negotiator";
+// import Negotiator from "negotiator";
 
 function getLocale(request: NextRequest): string | undefined {
   // Negotiator expects plain object so we need to transform headers
@@ -21,7 +21,7 @@ function getLocale(request: NextRequest): string | undefined {
   // console.log("i18n.defaultLocale", i18n.defaultLocale);
   // console.log("i18n.locales", i18n.locales);
 
-  let languages = ["en-US", "en"];
+  let languages = navigator.languages;
 
   // console.log("spread languages", languages);
   try {
