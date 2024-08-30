@@ -21,6 +21,9 @@ function getLocale(request: NextRequest): string | undefined {
   console.log("i18n.defaultLocale", i18n.defaultLocale);
   console.log("i18n.locales", i18n.locales);
 
+  languages = [...languages, ...i18n.locales];
+
+  console.log("spread languages", languages);
   try {
     return matchLocale(languages, locales, i18n.defaultLocale);
   } catch (e) {
